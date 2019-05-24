@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://fz.wanfangdata.com.cn/index.do -->
+<html lang="zh-cn">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>唯有读志 方知中国</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/default.css">
+    <link rel="stylesheet" href="./css/jquery.autocomplete.css">
+    <script src="./js/hm.js"></script>
+    <script type="text/javascript" src="./js/baidutj.js"></script>
+</head>
+
+<body class="index">
+
+    <div class="header">
+        <div class="container">
+            <ul class="userinfo">
+                <li><a href="" target="_blank">登录</a></li>
+                <li><a href="" target="_blank">注册</a></li>
+            </ul>
+        </div>
+        <!--多用户显示-->
+        <div id="usergroups"></div>
+    </div>
+
+    <div class="topbar">
+        <div class="container">
+            <h1 class="logo">
+                <a href=""><img src="./img/logo-1.png" alt=""></a>
+                <ul class="home_nav">
+                    <li><a class="urlLinkEncodeNew" href="">新方志</a></li>
+                    <li><a class="urlLinkEncodeOld" href="">旧方志</a></li>
+                    <li>
+                        <a href=""><img src="./img/icon-position.png" alt="">地图找志</a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank"><img style="margin-top: 2px;" src="./img/question_03.png" alt="">问卷调查</a>
+                    </li>
+                </ul>
+            </h1>
+        </div>
+    </div>
+
+    <div class="search">
+        <a href=""><img class="slogan" src="./img/index-slogan.png"></a>
+        <ul class="handle" id="searchType">
+            <li class="current" data-value="all">全部</li>
+            <li data-value="FZ_New">新方志</li>
+            <li data-value="FZ_Old">旧方志</li>
+        </ul>
+        <div class="bar">
+            <div class="list">
+                <select id="selectedType">
+				<option value="0">志书</option>
+				<option value="1">条目</option>
+			</select>
+            </div>
+            <p>
+                <span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input type="text" id="searchWord" placeholder="请输入检索词" class="ui-autocomplete-input" autocomplete="off">
+                <button type="button" id="btnSearch">检 索</button>
+            </p>
+        </div>
+        <div id="searchPanel"></div>
+    </div>
+
+    <div class="footer">
+        <p>
+            <a href="" target="_blank">公司首页</a> |
+            <a href="" target="_blank">关于我们</a> |
+            <a href="" target="_blank">客户服务</a> |
+            <a href="javascript:;" class="zh_click" id="zh_click_t" onclick="zh_tran(&#39;t&#39;)">繁体</a>
+            <a href="javascript:;" class="zh_click" id="zh_click_s" onclick="zh_tran(&#39;s&#39;)" style="display: none;">简体</a>
+        </p>
+        <p>
+            <a href="" target="_blank">万方数据知识服务平台</a> |
+            <a href="" target="_blank">万方视频</a> |
+            <a href="" target="_blank">中小学数字图书馆</a> |
+            <a href="" target="_blank">万方医学网</a> |
+            <a href="" target="_blank">企业知识服务平台</a>
+        </p>
+        <p>
+            <a href="" target="_blank">万方地方志知识服务系统[简称：方志数据库]V1.0 证书号：软著登字第2275950号</a>
+        </p>
+        <p>
+            <a href="" target="_blank">网络出版服务许可证：总网出证(京)字第096号</a>
+            <a href="" target="_blank">信息网络传播视听节目许可证 许可证号：0108284</a>
+            <a href="" target="_blank">京ICP证：010071</a>
+            <a href="" target="_blank">京公网安备11010802020237号</a>
+        </p>
+    </div>
+
+    <script src="./js/jquery-1.12.3.min.js"></script>
+    <script src="./js/lang.js"></script>
+    <script src="./js/jquery-ui.min.js"></script>
+    <script>
+        var islocal = false
+
+        var loc_api = 'http://api.frontend.dams.test:8000/'
+        var loc_web = 'http://localhost:8080/'
+        var pd_api = 'http://120.79.86.245:7000/'
+        var pd_web = 'http://120.79.86.245:8000/'
+        window._baseUrl = islocal ? loc_web : pd_web
+        window._baseApi = islocal ? loc_api : pd_api
+
+        $('#btnSearch').on('click', function() {
+            var keyword = $('#searchWord').val()
+            keyword = keyword != undefined ? keyword : ''
+            window.location.href = _baseUrl + 'detail.html?search=' + keyword
+        })
+    </script>
+
+    <ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul>
+</body>
+
+</html>
